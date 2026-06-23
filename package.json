@@ -1,0 +1,33 @@
+{
+  "name": "agentic-clarity-preflight",
+  "version": "0.1.0",
+  "description": "Local preflight gate that checks whether a Clarity contract action meets baseline safety requirements before it is exposed to an AI agent, MCP tool, or automation workflow.",
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "agentic-clarity-preflight": "dist/index.js"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "dev": "tsx src/index.ts",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "commander": "14.0.3",
+    "zod": "4.4.3"
+  },
+  "devDependencies": {
+    "@types/node": "20.19.43",
+    "tsx": "4.22.4",
+    "typescript": "6.0.3",
+    "vitest": "4.1.9"
+  }
+}
