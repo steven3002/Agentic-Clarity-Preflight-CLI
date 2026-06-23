@@ -1,0 +1,27 @@
+{
+  "id": "sbtc-payment.pay-with-sbtc",
+  "description": "sBTC payment action for agent exposure.",
+  "contract": {
+    "name": "sbtc-payment",
+    "function": "pay-with-sbtc"
+  },
+  "networkPolicy": {
+    "allowedNetworks": ["testnet", "mainnet"],
+    "mainnetAllowed": true
+  },
+  "args": [
+    {
+      "name": "amount",
+      "type": "uint"
+    },
+    {
+      "name": "recipient",
+      "type": "principal"
+    }
+  ],
+  "assetMovement": {
+    "type": "sip010",
+    "asset": "sbtc",
+    "amountFromArg": "amount"
+  }
+}
