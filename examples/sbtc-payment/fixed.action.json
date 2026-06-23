@@ -1,0 +1,40 @@
+{
+  "id": "sbtc-payment.pay-with-sbtc",
+  "description": "Bounded sBTC payment action intended for agent/tool exposure.",
+  "contract": {
+    "name": "sbtc-payment",
+    "function": "pay-with-sbtc"
+  },
+  "networkPolicy": {
+    "allowedNetworks": ["simnet", "devnet", "testnet"],
+    "mainnetAllowed": false
+  },
+  "args": [
+    {
+      "name": "amount",
+      "type": "uint",
+      "min": "1",
+      "max": "1000000"
+    },
+    {
+      "name": "recipient",
+      "type": "principal"
+    }
+  ],
+  "assetMovement": {
+    "type": "sip010",
+    "asset": "sbtc",
+    "amountFromArg": "amount"
+  },
+  "postConditionPolicy": {
+    "required": true,
+    "mode": "deny",
+    "sender": "tx-sender",
+    "condition": "will-send-eq",
+    "asset": "sbtc",
+    "amountFromArg": "amount"
+  },
+  "preflight": {
+    "clarinetTest": "./tests/sbtc-payment.preflight.test.ts"
+  }
+}

@@ -1,0 +1,21 @@
+name: preflight
+
+# Runs the CLI's own test suite and demonstrates the CI gate: `check` exits non-zero on an
+# unsafe action config, so a job step that runs it fails the pipeline. Point the final step
+# at any action config to gate that action on the preflight check.
+on:
+  push:
+  pull_request:
+
+jobs:
+  preflight:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm ci
+      - run: npm test
+      - name: Gate the example action on the preflight check
+        run: node dist/index.js check examples/sbtc-payment/fixed.action.json
