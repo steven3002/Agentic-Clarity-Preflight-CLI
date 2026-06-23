@@ -1,0 +1,19 @@
+{
+  "name": "sbtc-payment-preflight-demo",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Clarinet simnet preflight demo for the bounded sBTC payment action.",
+  "scripts": {
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@stacks/clarinet-sdk": "3.20.0",
+    "@stacks/transactions": "7.4.0",
+    "vitest": "4.1.9",
+    "vitest-environment-clarinet": "3.0.2"
+  },
+  "devDependencies": {
+    "@types/node": "20.19.43"
+  }
+}

@@ -1,0 +1,16 @@
+[project]
+name = 'sbtc-payment'
+description = 'Bounded sBTC payment action — Clarinet simnet preflight demo'
+authors = []
+telemetry = false
+cache_dir = './.cache'
+
+[contracts.sbtc-token]
+path = 'contracts/sbtc-token.clar'
+clarity_version = 3
+epoch = "3.0"
+
+[contracts.sbtc-payment]
+path = 'contracts/sbtc-payment.clar'
+clarity_version = 3
+epoch = "3.0"
